@@ -1,11 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>To-Do</title>
+  <!--font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+    rel="stylesheet">
+  <!--Icons-->
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <!--Custom CSS-->
+  <link href="./css/ejercicio02.css" rel="stylesheet">
 </head>
+
 <body>
-  <script src="./script.js/index.bundle.js" defer></script>
+  <!--ToDo List-->
+  <div class="container">
+    <!--Nav-->
+    <div class="content-nav">
+      <header>
+        <h1>To-Do</h1>
+      </header>
+      <!--Default-->
+      <div class="optionsDefault">
+        <h2>Home</h2>
+        <div class="sectionList">
+          <ul>
+            <li><a href="#"><i class='bx bx-bullseye'></i>All</a></li>
+            <li><a href="#"><i class='bx bx-calendar-event'></i>Today</a></li>
+            <li><a href="#"><i class='bx bx-calendar-week'></i>Next 7 Days</a></li>
+            <li><a href="#"><i class='bx bx-calendar-star'></i>Important</a></li>
+          </ul>
+        </div>
+      </div>
+      <!--Projects-->
+      <div class="optionsProjects">
+        <h2>Projects</h2>
+        <div class="sectionList">
+          <ul>
+            <li><a href="#"><i class='bx bx-list-plus'></i>Project 1</a><i class='bx bx-dots-vertical-rounded'></i></li>
+            <button id="addProject">
+              <i class='bx bx-plus-circle'></i>
+              Add Project
+            </button>
+          </ul>
+        </div>
+      </div>
+      <footer>
+        <a href="#" target="_blank">
+          <p>Copyright &copy; 2024 Alsnj20 :)</p>
+        </a>
+      </footer>
+    </div>
+    <!--List-->
+    <div class="content-text">
+      <div class="title">
+        <h1 id="titleProject">Project 1</h1>
+        <button id="addTask">
+          <i class='bx bx-plus-circle'></i>
+          Add Task
+        </button>
+        <!--Toggle Btn-->
+        <div class="toggle">
+          <div class="toggle-button">
+            <i class='bx bx-toggle-right'></i>
+            <img src="./img/sunny.png">
+          </div>
+        </div>
+      </div>
+      <!--Tasks-->
+      <main>
+        <div class="task">
+          <div class="taskTitle">
+            <div class="taskCheck"></div>
+            <i class='bx bx-check-circle' ></i>
+            Titulo 1<i class='bx bx-dots-vertical-rounded'></i>
+          </div>
+          <div class="taskDescription">
+            <span>Description:</span>
+            Description 1
+          </div>
+          <div class="taskDate">
+            <span>Date:12/12/2024</span>
+            <span>Time:12:00</span>
+            <span class="taskImportant">
+              <i class='bx bx-star'></i>
+            </span>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./script.js/index.bundle.js" defer></script>
 </body>
+
 </html>
