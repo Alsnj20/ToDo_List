@@ -6,6 +6,17 @@
   --bgFooter:#000000;
   --bgFontColor:#151515;
 }
+
+.dark{
+  --bgColor:#151515;
+  --bgColor2:#2C2C2C;
+  --bgTask:gray;
+  --btnColor:#EFCC;
+  --bgCont:#ffffff;
+  --bgFooter:#000000;
+  --bgFontColor:#eee;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -48,9 +59,10 @@ body{
   justify-content: space-between;
 }
 
+/* TodoList */
 .content-nav h1{
   color: var(--bgFontColor);
-  font-size: 3.5em;
+  font-size: 2.5em;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -63,7 +75,7 @@ body{
 }
 
 .sectionList ul li{
-  padding: 10px;
+  padding: 8px 10px;
   margin-bottom: 10px;
   border-radius: 10px;
   background-color: var(--bgColor);
@@ -75,6 +87,7 @@ body{
 
 .sectionList ul li i{
   margin-right: 10px;
+  color:var(--bgFontColor);
 }
 
 .content-text{
@@ -86,12 +99,12 @@ body{
 #addProject{
   width: 100%;
   background-color: var(--btnColor);
-  padding: 10px;
+  padding: 8px 10px;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
   margin-top: 20px;
 }
@@ -122,6 +135,7 @@ footer{
   font-weight: bold;
   margin-right: 10px;
   border-radius: 15px;
+  color:var(--bgFontColor);
 }
 
 .toggle{
@@ -140,13 +154,14 @@ footer{
   transition: all 0.3s ease-in;
 }
 
+.toggle-button img.active{
+  transform: translateX(0px);
+}
+
 .toggle-button img.dark{
   transform: translateX(40px);
 }
 
-.toggle-button img.active{
-  transform: translateX(0px);
-}
 .title div{
   display: flex;
   align-items: center;
@@ -161,7 +176,7 @@ main{
 
 .task{
   width: 100%;
-  background-color: var(--bgColor2);
+  background-color: var(--bgTask);
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
@@ -179,12 +194,7 @@ main{
   align-items: center;
 }
 
-.taskCheck
 
-.taskCheck i{
-  font-size: 1.5em;
-  color: green;
-}
 
 
 
