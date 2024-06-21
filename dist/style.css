@@ -290,10 +290,10 @@ main{
     position: absolute;
     z-index: 100;
     flex-direction: column;
-    margin-top: 30%;
+    margin-top: 15%;
     top:0;
     left: 0;
-    padding: 30px 30px 30px 100px;
+    padding: 10px 20px 10px 100px;
     margin-left: -50px;
   }
 
