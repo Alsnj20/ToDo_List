@@ -119,6 +119,32 @@ body{
   margin-right: 10px;
 }
 
+#formProject{
+  display: none;
+  background-color: var(--bgColor2);
+  border-radius: 10px;
+  padding-top: 10px;
+}
+#formProject input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#formProject .optionsCreateProject{
+  width: 100%;
+  display: flex;
+  gap:10px;
+}
+.optionsCreateProject button{
+  width:50%;
+  background-color: var(--btnColor);
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 footer{
   width: 100%;
   background-color: var(--bgColor);
@@ -221,7 +247,6 @@ main{
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: 0 100%;
-
   }
   .content-text{
     position: relative;
@@ -240,11 +265,11 @@ main{
 
   main{
     grid-template-columns: 1fr;
-    padding: 10px;
+    width: 100%;
     height:auto;
   }
   .task{
-    width: 100%;
+    width: 95%;
   }
 
   .content-nav{

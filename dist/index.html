@@ -17,7 +17,8 @@
   <!--Custom CSS-->
   <link href="./style.css" rel="stylesheet">
   <!--Custom JS-->
-  <script src="./index.js" defer></script>
+  <script src="./toggle.js" defer></script>
+  <script src="../src/todoList.js" defer></script>
 </head>
 
 <body>
@@ -53,6 +54,13 @@
                 <i class='bx bx-plus-circle'></i>
                 Add Project
               </button>
+              <div id="formProject">
+                <input type="text" placeholder="Name Project">
+                <div class="optionsCreateProject">
+                  <button id="doProject">ACEPTAR</button>
+                  <button id="cancelProject">CANCELAR</button>
+                </div>
+              </div>
             </ul>
           </div>
         </div>
