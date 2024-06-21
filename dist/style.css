@@ -225,21 +225,23 @@ main{
   }
   .content-text{
     position: relative;
-    height: 7000px;
+    min-height:100vh;
+    height: auto;
   }
 
   footer{
     position: absolute;
     bottom: 0;
     z-index: 100;
-    width: 90%;
+    width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 20px;
   }
 
   main{
     grid-template-columns: 1fr;
     padding: 10px;
+    height:auto;
   }
   .task{
     width: 100%;
@@ -247,6 +249,7 @@ main{
 
   .content-nav{
     background-color: transparent;
+    padding: 0;
   }
 
 
