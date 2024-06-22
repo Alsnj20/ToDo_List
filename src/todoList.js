@@ -1,9 +1,21 @@
-//Add Project
+//Import objects
+import ProjectManager from './projectManager.js';
+import Project from './project.js';
+import Task from './task.js';
+
+//Objects
+const projectManager = new ProjectManager();
+const taskAll = [];
+
+
+//PROJECTS
 const addProject = document.querySelector('#addProject');
 const formProject = document.querySelector('#formProject');
 const inProject = document.querySelector('#formProject input');
 const btnDoProject = document.querySelector('#doProject');
 const btnCancelProject = document.querySelector('#cancelProject');
+
+//Animations
 addProject.addEventListener('click', () => {
   formProject.style.display = 'block';
 })
@@ -14,7 +26,7 @@ btnCancelProject.addEventListener('click', () => {
 
 btnDoProject.addEventListener('click', () => {
   if (inProject.value !== '') {
-    ProjectsList.push(new Project(inProject.value));
+    projectManager.addProject(new Project(inProject.value));
     createProject(inProject.value);
     formProject.style.display = 'none';
     inProject.value = '';
@@ -23,26 +35,35 @@ btnDoProject.addEventListener('click', () => {
 
 //Projects
 const titleProject = document.querySelector('#titleProject');
-const projects = document.querySelector('.sectionList ul');
+const projects = document.querySelector('.optionsProjects .sectionList ul');
 
-const projectsList = [];
-
+//Create Project
 const createProject = (title) => {
   const li = document.createElement('li');
-  li.innerHTML = `<a href="#"><i class='bx bx-list-plus'></i>${title}</a><i class='bx bx-dots-vertical-rounded'></i>`;
+  li.innerHTML = `<a href="#"><i class='bx bx-list-plus'></i>${title}</a><i class='bx bx-x'></i>`;
   projects.appendChild(li);
 }
+
+
+//Remove Project
+projects.addEventListener('click', (e) => {
+  console.log(e.target);
+  if (e.target.classList.contains('bx-x')) {
+    e.target.parentElement.remove();
+    const titleProject = e.target.parentElement.firstChild.textContent;
+    const project = projectManager.getProjectName(titleProject);
+    projectManager.removeProject(project);
+  }
+});
+
+
 
 //add Task
 //Animations
 const formTask = document.querySelector('.formTask');
-console.log(formTask);
 const addTask = document.querySelector('#addTask');
-console.log(addTask);
 const okTask = document.querySelector('#okTask');
-console.log(okTask);
 const cancelTask = document.querySelector('#cancelTask');
-console.log(cancelTask);
 
 
 const toggleBlur = () => {
@@ -54,29 +75,20 @@ const toggleBlur = () => {
 addTask.addEventListener('click', () => {
   formTask.style.display = 'flex';
   formTask.classList.remove('hide');
-  toggleBlur();  
+  toggleBlur();
 });
 
 cancelTask.addEventListener('click', () => {
   formTask.classList.add('hide');
   toggleBlur();
-  setTimeout(() => {
-    formTask.style.display = 'none';
-    formTask.classList.remove('hide');
-  }, 900); // Tiempo de la animación inversa
+  formTask.style.display = 'none';
 });
 
 okTask.addEventListener('click', () => {
   formTask.classList.add('hide');
   toggleBlur();
-  setTimeout(() => {
-    formTask.style.display = 'none';
-    formTask.classList.remove('hide');
-  }, 900); // Tiempo de la animación inversa
+  formTask.style.display = 'none';
 })
-
-
-
 //Task
 
 

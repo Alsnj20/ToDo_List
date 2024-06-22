@@ -18,7 +18,7 @@
   <link href="./style.css" rel="stylesheet">
   <!--Custom JS-->
   <script src="./toggle.js" defer></script>
-  <script src="../src/todoList.js" defer></script>
+  <script src="../src/todoList.js" type="module"></script>
 </head>
 
 <body>
@@ -45,10 +45,10 @@
         </div>
         <!--Projects-->
         <div class="optionsProjects">
-          <h2>Projects</h2>
+          <h2 id="projects">Projects</h2>
           <div class="sectionList">
             <ul>
-              <li><a href="#"><i class='bx bx-list-plus'></i>Project 1</a><i class='bx bx-dots-vertical-rounded'></i>
+              <li><a href="#"><i class='bx bx-list-plus'></i>Project 1</a><i class='bx bx-x'></i>
               </li>
             </ul>
             <button id="addProject">
@@ -121,6 +121,12 @@
           <div>
             <label for="dateTask">Date:</label>
             <input type="date" id="dateTask">
+          </div>
+          <div>
+            <label for="secProject">Project:</label>
+            <select id="secProject">
+              <option value="1">Project 1</option>
+            </select>
           </div>
           <div class="priority">
             <label for="importantTask">Important:</label>

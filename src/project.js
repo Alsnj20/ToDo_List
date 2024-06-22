@@ -13,3 +13,4 @@ class Project{
     return this.tasks;
   }
 }
+export default Project;

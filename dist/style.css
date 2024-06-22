@@ -257,19 +257,20 @@ main{
   animation: visible 0.9s forwards;
 }
 .formTask.hide {
-  animation: hidden 0.9s forwards;
+  animation: hidden 0.5s forwards;
 }
-.formTask input{
+.formTask input, select, option, textarea{
   padding: 1%;
   font-family: 'Poppins', sans-serif;
   background-color: transparent;
+}
+.formTask select{
+  border-radius: 5px;
+  outline: none;
 }
 .formTask textarea{
-  padding: 1%;
-  font-family: 'Poppins', sans-serif;
   width: 100%;
-  height: 200px;
-  background-color: transparent;
+  height: 160px;
   border: none;
   outline: none;
   resize: none;
@@ -371,7 +372,7 @@ main{
   .formTask textarea{
     width: 100%;
     min-height: max-content;
-    height: 120px;
+    height: 90px;
   }
 
   footer{
@@ -396,8 +397,16 @@ main{
     background-color: transparent;
     padding: 0;
   }
-
-
+  .content-nav h1{
+    font-size: 1.5em;
+    margin-bottom: 1px;
+  }
+  .content-nav h2, .content-nav button{
+    font-size: 1em;
+  }
+  .content-nav ul li{
+    font-size: 0.8em;
+  }
   .menu{
     display: inline-block;
     position: relative;
@@ -406,6 +415,7 @@ main{
   .content-nav div:first-child{
     display: none;
     width: 100%;
+    max-height: 80vh;
     background-color: var(--bgColor);
     position: absolute;
     z-index: 100;
@@ -431,6 +441,9 @@ main{
   }
   .toggle-button img.dark{
     transform: translateX(25px);
+  }
+  .optionsProjects{
+    overflow-y: auto;
   }
 
 }

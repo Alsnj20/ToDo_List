@@ -1,17 +1,18 @@
 class ProjectManager{
-  constructor(project){
-    this.projects = [project];
+  constructor(){
+    this.projects = [];
   }
   addProject(project){
     this.projects.push(project);
   }
   removeProject(project){
-    return this.projects.filter((p) => p !== project);
+    this.projects = this.projects.filter((p) => p !== project);
   }
-  getProject(name){
-    return this.projects.some((p) => p.name === name);
+  getProjectName(name){
+    return this.projects.find((p) => p.name === name);
   }
   getProject(){
     return this.projects;
   }
 }
+export default ProjectManager;

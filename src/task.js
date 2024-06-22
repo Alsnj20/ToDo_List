@@ -22,12 +22,4 @@ class Task{
     this.priority = prior;
   }
 }
-
-const task1 = new Task('Learn React', 'Learn React by building a simple todo app', false);
-console.log(task1);
-task1.markCompleted();
-task1.description = 'Learn React';
-task1.putTag('react');
-console.log(task1);
-
-const priorityList = ['low', 'medium', 'high'];
+export default Task;
