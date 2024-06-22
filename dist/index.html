@@ -111,6 +111,7 @@
           </div>
         </div>
         <form class="createTask">
+          <h2>Create Task</h2>
           <div>
             <input type="text" id="titleTask" placeholder="Title">
           </div>
@@ -122,12 +123,12 @@
             <input type="date" id="dateTask">
           </div>
           <div>
-            <label for="timeTask">Time:</label>
-            <input type="time" id="timeTask">
-          </div>
-          <div>
-            <label for="importantTask">Important:</label>
-            <input type="checkbox" id="importantTask">
+            <div class="priority">
+              <label for="importantTask">Important:</label>
+              <button id="high">High</button>
+              <button id="medium">Medium</button>
+              <button id="low">Low</button>
+            </div>
           </div>
           <button id="doTask">ACEPTAR</button>
         </form>
