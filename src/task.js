@@ -1,22 +1,17 @@
 class Task{
-  constructor(title, description, isCompleted){
+  constructor(title, description, date, time, isCompleted = false){
     this.title = title;
     this.description = description;
     this.isCompleted = isCompleted;
-    this.tag = '';
-    this.priority = 'high';
+    this.priority = 'High';
+    this.date = date;
+    this.time = time;
   }
   markCompleted(){
     this.isCompleted = true;
   }
   markPending(){
     this.isCompleted = false;
-  }
-  putTag(tag){
-    this.tag = tag;
-  }
-  getTag(){
-    return this.tag;
   }
   changePriority(prior){
     this.priority = prior;

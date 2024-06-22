@@ -75,6 +75,7 @@ addTask.addEventListener('click', () => {
   formTask.style.display = 'flex';
   formTask.classList.remove('hide');
   toggleBlur();
+  updateProject();
 });
 
 // formTask
@@ -96,24 +97,38 @@ okTask.addEventListener('click', () => {
   formTask.classList.add('hide');
   toggleBlur();
   formTask.style.display = 'none';
-  console.log(titleTask.value, descriptionTask.value, dateTask.value, secProject.value);
+  const project = projectManager.getProjectName(secProject.value);
+  console.log(project);
+  project.addTask(new Task(titleTask.value, descriptionTask.value, dateTask.value, priority));
+  createTask(titleTask.value, dateTask.value, priority, descriptionTask.value);
 })
 
 const handlePriority = (e) => {
   priorityBtns.forEach(btn => {
-    console.log(btn);
     btn.classList.remove('priorityActive');
   })
-  console.log(e.target);
   e.target.classList.add('priorityActive');
+  priority = e.target.textContent;
 }
 
 priorityBtns.forEach(btn => {
   btn.addEventListener('click', handlePriority);
 })
 
+const updateProject = () => {
+  secProject.innerHTML = '';
+  projectManager.projects.forEach(project => {
+    const option = document.createElement('option');
+    option.value = project.name;
+    option.textContent = project.name;
+    secProject.appendChild(option);
+  });
+
+}
+
 //Task
 const createTask = (title, date, time, description) => {
+  const mainElement = document.querySelector('main');
   // Crear elementos necesarios
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
