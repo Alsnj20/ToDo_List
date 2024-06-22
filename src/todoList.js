@@ -14,6 +14,7 @@ btnCancelProject.addEventListener('click', () => {
 
 btnDoProject.addEventListener('click', () => {
   if (inProject.value !== '') {
+    ProjectsList.push(new Project(inProject.value));
     createProject(inProject.value);
     formProject.style.display = 'none';
     inProject.value = '';
@@ -24,6 +25,7 @@ btnDoProject.addEventListener('click', () => {
 const titleProject = document.querySelector('#titleProject');
 const projects = document.querySelector('.sectionList ul');
 
+const projectsList = [];
 
 const createProject = (title) => {
   const li = document.createElement('li');
@@ -31,8 +33,9 @@ const createProject = (title) => {
   projects.appendChild(li);
 }
 
-
 //add Task
+const addTask = document.querySelector('#addTask');
+
 
 
 //Task
