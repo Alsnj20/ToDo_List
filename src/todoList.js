@@ -34,10 +34,52 @@ const createProject = (title) => {
 }
 
 //add Task
+//Animations
+const formTask = document.querySelector('.formTask');
+console.log(formTask);
 const addTask = document.querySelector('#addTask');
+console.log(addTask);
+const okTask = document.querySelector('#okTask');
+console.log(okTask);
+const cancelTask = document.querySelector('#cancelTask');
+console.log(cancelTask);
+
+
+const toggleBlur = () => {
+  const items = document.querySelectorAll('.content-nav, .content-text i, .title, .task').forEach(item => {
+    item.classList.toggle('blur');
+  });
+}
+
+addTask.addEventListener('click', () => {
+  formTask.style.display = 'flex';
+  formTask.classList.remove('hide');
+  toggleBlur();  
+});
+
+cancelTask.addEventListener('click', () => {
+  formTask.classList.add('hide');
+  toggleBlur();
+  setTimeout(() => {
+    formTask.style.display = 'none';
+    formTask.classList.remove('hide');
+  }, 900); // Tiempo de la animación inversa
+});
+
+okTask.addEventListener('click', () => {
+  formTask.classList.add('hide');
+  toggleBlur();
+  setTimeout(() => {
+    formTask.style.display = 'none';
+    formTask.classList.remove('hide');
+  }, 900); // Tiempo de la animación inversa
+})
 
 
 
 //Task
+
+
+//Tasks
 
 
