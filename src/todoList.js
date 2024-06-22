@@ -33,7 +33,7 @@ btnDoProject.addEventListener('click', () => {
   }
 });
 
-//Projects
+//Project
 const titleProject = document.querySelector('#titleProject');
 const projects = document.querySelector('.optionsProjects .sectionList ul');
 
@@ -58,14 +58,13 @@ projects.addEventListener('click', (e) => {
 
 
 
-//add Task
-//Animations
+//TASKS
 const formTask = document.querySelector('.formTask');
 const addTask = document.querySelector('#addTask');
 const okTask = document.querySelector('#okTask');
 const cancelTask = document.querySelector('#cancelTask');
 
-
+//Animations
 const toggleBlur = () => {
   const items = document.querySelectorAll('.content-nav, .content-text i, .title, .task').forEach(item => {
     item.classList.toggle('blur');
@@ -78,6 +77,15 @@ addTask.addEventListener('click', () => {
   toggleBlur();
 });
 
+// formTask
+const titleTask = document.querySelector('#titleTask');
+const descriptionTask = document.querySelector('#descriptionTask');
+const dateTask = document.querySelector('#dateTask');
+const secProject = document.querySelector('#secProject');
+const priorityBtns = document.querySelectorAll('.priority button');
+let priority = 'high';
+
+
 cancelTask.addEventListener('click', () => {
   formTask.classList.add('hide');
   toggleBlur();
@@ -88,9 +96,67 @@ okTask.addEventListener('click', () => {
   formTask.classList.add('hide');
   toggleBlur();
   formTask.style.display = 'none';
+  console.log(titleTask.value, descriptionTask.value, dateTask.value, secProject.value);
 })
-//Task
 
+const handlePriority = (e) => {
+  priorityBtns.forEach(btn => {
+    console.log(btn);
+    btn.classList.remove('priorityActive');
+  })
+  console.log(e.target);
+  e.target.classList.add('priorityActive');
+}
+
+priorityBtns.forEach(btn => {
+  btn.addEventListener('click', handlePriority);
+})
+
+//Task
+const createTask = (title, date, time, description) => {
+  // Crear elementos necesarios
+  const taskDiv = document.createElement('div');
+  taskDiv.classList.add('task');
+
+  const taskTitleDiv = document.createElement('div');
+  taskTitleDiv.classList.add('taskTitle');
+
+  const titleDiv = document.createElement('div');
+  titleDiv.classList.add('title');
+  titleDiv.textContent = title;
+
+  const dateDiv = document.createElement('div');
+  dateDiv.classList.add('date');
+  const dateSpan = document.createElement('span');
+  dateSpan.textContent = date;
+  const timeSpan = document.createElement('span');
+  timeSpan.textContent = time;
+  dateDiv.appendChild(dateSpan);
+  dateDiv.appendChild(timeSpan);
+
+  const descriptionDiv = document.createElement('div');
+  descriptionDiv.classList.add('taskDescription');
+  descriptionDiv.textContent = description;
+
+  const optionsTaskDiv = document.createElement('div');
+  optionsTaskDiv.classList.add('optionsTask');
+  const checkIcon = document.createElement('i');
+  checkIcon.classList.add('bx', 'bx-check');
+  const trashIcon = document.createElement('i');
+  trashIcon.classList.add('bx', 'bx-trash');
+  optionsTaskDiv.appendChild(checkIcon);
+  optionsTaskDiv.appendChild(trashIcon);
+
+  // Construir la estructura de la tarea
+  taskTitleDiv.appendChild(titleDiv);
+  taskTitleDiv.appendChild(dateDiv);
+  taskDiv.appendChild(taskTitleDiv);
+  taskDiv.appendChild(descriptionDiv);
+  taskDiv.appendChild(optionsTaskDiv);
+
+  // Agregar la tarea al elemento <main>
+  mainElement.appendChild(taskDiv);
+}
 
 //Tasks
 

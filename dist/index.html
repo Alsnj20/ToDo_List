@@ -92,54 +92,52 @@
       <main>
         <div class="task">
           <div class="taskTitle">
-            <div class="taskCheck">
-              <i class='bx bx-check-circle'></i>
-              Titulo 1
+            <div class="title">Titulo 1</div>
+            <div class="date">
+              <span>12/12/2024</span>
+              <span>12:00</span>
             </div>
-            <i class='bx bx-dots-vertical-rounded'></i>
           </div>
           <div class="taskDescription">
-            <span>Description:</span>
             Description 1
+            djfjfhjfjrenfrjfn
+            Lorem ipsum dolor sit amet consectetur adipisicing
           </div>
-          <div class="taskDate">
-            <span>Date:12/12/2024</span>
-            <span>Time:12:00</span>
-            <span class="taskImportant">
-              <i class='bx bx-star'></i>
-            </span>
+          <div class="optionsTask">
+              <i class='bx bx-check'></i>
+              <i class='bx bx-trash'></i>
           </div>
         </div>
-        <form class="formTask">
-          <h2>Create Task</h2>
-          <div>
-            <input type="text" id="titleTask" placeholder="Title">
-          </div>
-          <div>
-            <textarea id="descriptionTask" placeholder="Description"></textarea>
-          </div>
-          <div>
-            <label for="dateTask">Date:</label>
-            <input type="date" id="dateTask">
-          </div>
-          <div>
-            <label for="secProject">Project:</label>
-            <select id="secProject">
-              <option value="1">Project 1</option>
-            </select>
-          </div>
-          <div class="priority">
-            <label for="importantTask">Important:</label>
-            <button id="high">High</button>
-            <button id="medium">Medium</button>
-            <button id="low">Low</button>
-          </div>
-          <div>
-            <button id="okTask">ACEPTAR</button>
-            <button id="cancelTask">CANCELAR</button>
-          </div>
-        </form>
       </main>
+      <form class="formTask">
+        <h2>Create Task</h2>
+        <div>
+          <input type="text" id="titleTask" placeholder="Title" required>
+        </div>
+        <div>
+          <textarea id="descriptionTask" placeholder="Description"></textarea>
+        </div>
+        <div>
+          <label for="dateTask">Date:</label>
+          <input type="date" id="dateTask" required>
+        </div>
+        <div>
+          <label for="secProject">Project:</label>
+          <select id="secProject" required>
+            <option>Project 1</option>
+          </select>
+        </div>
+        <div class="priority">
+          <label for="importantTask">Important:</label>
+          <button id="high">High</button>
+          <button id="medium">Medium</button>
+          <button id="low">Low</button>
+        </div>
+        <div>
+          <button id="okTask">ACEPTAR</button>
+          <button id="cancelTask">CANCELAR</button>
+        </div>
+      </form>
     </div>
     <script src="./script.js/index.bundle.js" defer></script>
 </body>

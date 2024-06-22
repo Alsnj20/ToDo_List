@@ -5,13 +5,14 @@
   --bgCont:#ffffff;
   --bgFooter:#000000;
   --bgFontColor:#151515;
+  --bgTask:rgb(251, 207, 222);
 }
 
 .dark{
   --bgColor:#151515;
   --bgColor2:#2C2C2C;
-  --bgTask:gray;
-  --btnColor:#EFCC;
+  --bgTask:rgb(207, 207, 207);
+  --btnColor:rgba(207, 241, 140, 0.8);
   --bgCont:#ffffff;
   --bgFooter:#000000;
   --bgFontColor:#eee;
@@ -204,12 +205,15 @@ footer{
   display: flex;
   align-items: center;
 }
+.title h1{
+  color:var(--bgFontColor);
+}
 
 /* Main */
 main{
   background-color: transparent;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .task{
@@ -221,10 +225,21 @@ main{
   height: 200px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  border-left: 10px solid green;
+  overflow-y: auto;
+}
+.task .optionsTask{
+  text-align: end;
+}
+.optionsTask i{
+  margin-right: 10px;
+  color: #151515;
+  font-size: 1.5em;
 }
 
 .taskTitle{
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
@@ -302,6 +317,13 @@ main{
   border: 1px solid var(--bgColor);
   padding: 2px 0;
 }
+
+.priority button:hover{
+  background-color: var(--btnColor)
+}
+button.priorityActive{
+  background-color: var(--btnColor);
+} 
 .priority #high{
   color: green;
 }
@@ -425,6 +447,9 @@ main{
     left: 0;
     padding: 10px 20px 10px 100px;
     margin-left: -50px;
+  }
+  .menu{
+    color:var(--bgFontColor);
   }
 
   .content-nav div:first-child.active{
