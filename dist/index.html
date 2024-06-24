@@ -17,108 +17,10 @@
   <!--Custom CSS-->
   <link href="./style.css" rel="stylesheet">
   <!--Custom JS-->
-  <script src="./toggle.js" defer></script>
-  <script src="../src/todoList.js" type="module"></script>
 </head>
 
 <body>
-  <script src="./script.js/index.bundle.js" defer></script>
+  <script src="../src/index.js" defer></script>
   <!--ToDo List-->
-  <div class="container">
-    <!--Nav-->
-    <div class="content-nav">
-      <div>
-        <header>
-          <h1>TodoList</h1>
-        </header>
-        <!--Default-->
-        <div class="optionsDefault">
-          <h2>Home</h2>
-          <div class="sectionList">
-            <ul>
-              <li><a class="titlePag" href="#"><i class='bx bx-bullseye'></i>All</a></li>
-              <li><a class="titlePag" href="#"><i class='bx bx-calendar-event'></i>Today</a></li>
-              <li><a class="titlePag" href="#"><i class='bx bx-calendar-week'></i>Next 7 Days</a></li>
-              <li><a class="titlePag" href="#"><i class='bx bx-calendar-star'></i>Important</a></li>
-            </ul>
-          </div>
-        </div>
-        <!--Projects-->
-        <div class="optionsProjects">
-          <h2 id="projects">Projects</h2>
-          <div class="sectionList">
-            <ul>
-            </ul>
-            <button id="addProject">
-              <i class='bx bx-plus-circle'></i>
-              Add Project
-            </button>
-            <div id="formProject">
-              <input type="text" placeholder="Name Project">
-              <div class="optionsCreateProject">
-                <button id="doProject">ACEPTAR</button>
-                <button id="cancelProject">CANCELAR</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <footer>
-        <a href="#" target="_blank">
-          <p>Copyright &copy; 2024 Alsnj20 :)</p>
-        </a>
-      </footer>
-    </div>
-    <!--List-->
-    <div class="content-text">
-      <i class='bx bx-menu menu'></i>
-      <div class="title">
-        <h1 id="titleProject"></h1>
-        <div>
-          <button id="addTask">
-            Add Task
-          </button>
-          <!--Toggle Btn-->
-          <div class="toggle">
-            <div class="toggle-button">
-              <img src="./img/sunny.png">
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Tasks-->
-      <main>
-      </main>
-      <form class="formTask">
-        <h2>Create Task</h2>
-        <div>
-          <input type="text" id="titleTask" placeholder="Title" required>
-        </div>
-        <div>
-          <textarea id="descriptionTask" placeholder="Description"></textarea>
-        </div>
-        <div>
-          <label for="dateTask">Date:</label>
-          <input type="date" id="dateTask" required>
-        </div>
-        <div>
-          <label for="secProject">Project:</label>
-          <select id="secProject" required>
-          </select>
-        </div>
-        <div class="priority">
-          <label for="importantTask">Important:</label>
-          <button id="high">High</button>
-          <button id="medium">Medium</button>
-          <button id="low">Low</button>
-        </div>
-        <div>
-          <button id="okTask">ACEPTAR</button>
-          <button id="cancelTask">CANCELAR</button>
-        </div>
-      </form>
-    </div>
-    <script src="./script.js/index.bundle.js" defer></script>
 </body>
-
 </html>
