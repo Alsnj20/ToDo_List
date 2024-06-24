@@ -14,5 +14,10 @@ class ProjectManager{
   getProject(){
     return this.projects;
   }
+  printProjects(){
+    this.projects.forEach(project => {
+      console.log(project);
+    });
+  }
 }
 export default ProjectManager;

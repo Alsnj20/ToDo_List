@@ -3,7 +3,6 @@ class Task{
     this.title = title;
     this.description = description;
     this.isCompleted = isCompleted;
-    this.priority = 'High';
     this.date = date;
     this.time = time;
   }

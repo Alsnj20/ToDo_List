@@ -222,12 +222,25 @@ main{
   padding: 10px;
   margin: 10px;
   border-radius: 10px;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   border-left: 10px solid green;
   overflow-y: auto;
+}
+.task.done{
+  text-decoration: line-through;
+}
+
+.tak#high{
+  border-left: 10px solid green;
+}
+.task#medium{
+  border-left: 10px solid rgb(159, 159, 65);
+}
+.task#low{
+  border-left: 10px solid red;
 }
 .task .optionsTask{
   text-align: end;
@@ -274,10 +287,12 @@ main{
 .formTask.hide {
   animation: hidden 0.5s forwards;
 }
+.formTask div:first-of-type input{
+  width: 100%;
+}
 .formTask input, select, option, textarea{
   padding: 1%;
   font-family: 'Poppins', sans-serif;
-  background-color: transparent;
 }
 .formTask select{
   border-radius: 5px;

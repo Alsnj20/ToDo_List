@@ -36,14 +36,75 @@ btnDoProject.addEventListener('click', () => {
 //Project
 const titleProject = document.querySelector('#titleProject');
 const projects = document.querySelector('.optionsProjects .sectionList ul');
+const projectDefault = document.querySelector('.optionsDefault .sectionList ul');
 
 //Create Project
 const createProject = (title) => {
   const li = document.createElement('li');
-  li.innerHTML = `<a href="#"><i class='bx bx-list-plus'></i>${title}</a><i class='bx bx-x'></i>`;
+  li.innerHTML = `<a class='titlePag' href="#"><i class='bx bx-list-plus'></i>${title}</a><i class='bx bx-x'></i>`;
   projects.appendChild(li);
 }
 
+const showTasks = (name) => {
+  titleProject.textContent = name;
+  switch (name) {
+    case 'All':
+      if(mainElement.children.length > 0){
+      ProjectManager.projects.forEach(project => {
+        project.tasks.forEach(task => {
+          createTask(task.title, task.date, task.time, task.description);
+        });
+      });
+      }else{
+        titleProject.textContent += '(No tasks)'
+      }
+      break;
+    case 'Today':
+      const today = new Date().toLocaleDateString();
+      console.log(today);
+      projectManager.projects.forEach(project => {
+        project.tasks.forEach(task => {
+          if(task.date === today){
+            createTask(task.title, task.date, task.time, task.description);
+          }
+        });
+      });
+      break;
+    case 'This Week':
+      const week = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+      console.log(week);  
+      /*projectManager.projects.forEach(project => {
+        project.tasks.forEach(task => {
+          const taskDate = new Date(task.date);
+          if(taskDate <= week){
+            createTask(task.title, task.date, task.time, task.description);
+          }
+        });
+      });*/
+      break;
+    case 'Important':
+      projectManager.projects.forEach(project => {
+        project.tasks.forEach(task => {
+          if(task.priority === 'High'){
+            createTask(task.title, task.date, task.time, task.description);
+          }
+        });
+      });
+      break;
+    default:
+      const project = projectManager.getProjectName(name);
+      project.tasks.forEach(task => {
+        createTask(task.title, task.date, task.time, task.description);
+      });
+      break;
+  }
+}
+
+
+//Defecto
+createProject('Project');
+projectManager.addProject(new Project('Project'));
+showTasks('Project');
 
 //Remove Project
 projects.addEventListener('click', (e) => {
@@ -54,7 +115,18 @@ projects.addEventListener('click', (e) => {
     const project = projectManager.getProjectName(titleProject);
     projectManager.removeProject(project);
   }
+  if (e.target.classList.contains('titlePag')) {
+    showTasks(titleProject.textContent);
+  }
+
 });
+
+projectDefault.addEventListener('click', (e) => {
+  if (e.target.classList.contains('titlePag')) {
+    showTasks(e.target.textContent);
+  }
+
+})
 
 
 
@@ -99,8 +171,9 @@ okTask.addEventListener('click', () => {
   formTask.style.display = 'none';
   const project = projectManager.getProjectName(secProject.value);
   console.log(project);
-  project.addTask(new Task(titleTask.value, descriptionTask.value, dateTask.value, priority));
-  createTask(titleTask.value, dateTask.value, priority, descriptionTask.value);
+  const time = new Date().toLocaleTimeString().slice(0, 5);
+  project.addTask(new Task(titleTask.value, descriptionTask.value, dateTask.value, time, priority));
+  console.log("PROJECTOS:"+projectManager.printProjects());
 })
 
 const handlePriority = (e) => {
@@ -127,8 +200,8 @@ const updateProject = () => {
 }
 
 //Task
+const mainElement = document.querySelector('main');
 const createTask = (title, date, time, description) => {
-  const mainElement = document.querySelector('main');
   // Crear elementos necesarios
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
@@ -145,9 +218,8 @@ const createTask = (title, date, time, description) => {
   const dateSpan = document.createElement('span');
   dateSpan.textContent = date;
   const timeSpan = document.createElement('span');
-  timeSpan.textContent = time;
-  dateDiv.appendChild(dateSpan);
-  dateDiv.appendChild(timeSpan);
+  timeSpan.textContent = " " + time;
+  dateDiv.append(dateSpan, timeSpan);
 
   const descriptionDiv = document.createElement('div');
   descriptionDiv.classList.add('taskDescription');
@@ -159,20 +231,39 @@ const createTask = (title, date, time, description) => {
   checkIcon.classList.add('bx', 'bx-check');
   const trashIcon = document.createElement('i');
   trashIcon.classList.add('bx', 'bx-trash');
-  optionsTaskDiv.appendChild(checkIcon);
-  optionsTaskDiv.appendChild(trashIcon);
+  optionsTaskDiv.append(checkIcon, trashIcon);
 
-  // Construir la estructura de la tarea
-  taskTitleDiv.appendChild(titleDiv);
-  taskTitleDiv.appendChild(dateDiv);
-  taskDiv.appendChild(taskTitleDiv);
-  taskDiv.appendChild(descriptionDiv);
-  taskDiv.appendChild(optionsTaskDiv);
-
-  // Agregar la tarea al elemento <main>
+  taskTitleDiv.append(titleDiv, dateDiv);
+  taskDiv.setAttribute('id', updatePriority());
+  taskDiv.append(taskTitleDiv, descriptionDiv, optionsTaskDiv);
   mainElement.appendChild(taskDiv);
 }
 
+//Remove Task
+
+const updatePriority = () => {
+  switch (priority) {
+    case 'High':
+      return 'high';
+    case 'Medium':
+      return 'medium';
+    case 'Low':
+      return 'low';
+  }
+}
 //Tasks
+//Done and Remove Task
+mainElement.addEventListener('click', (e) => {
+  if (e.target.classList.contains('bx-trash')) {
+    e.target.parentElement.parentElement.remove();
+    console
+  }
+  if (e.target.classList.contains('bx-check')) {
+    e.target.parentElement.parentElement.classList.toggle('done');
+  }
+});
+
+
+
 
 
